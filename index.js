@@ -1,8 +1,8 @@
 
 
-//Hey welcome to my first tutorial
-//Now we learn how to create a bot.
-//(Simple)
+//Hey guys today we learn, how to keep a Bot alive
+//(with Uptimerobot)
+
 
 
 
@@ -53,7 +53,7 @@ const Discord = require('discord.js')  //or npm install discord.js
 const client = new Discord.Client();
 
 //Login the Bot
-client.login('ODYyNzM5MDM0OTUwNDY3NjU0.YOcuVg.kXWOmyfOlfUedFHTCjIpy2KZhn8')
+client.login('ODYyNzM5MDM0OTUwNDY3NjU0.YOcuVg.-yKarzPo55w3tRx3GRAiiIPmXsE')
 
 
 //How do I get the Token:
@@ -83,6 +83,28 @@ client.login('ODYyNzM5MDM0OTUwNDY3NjU0.YOcuVg.kXWOmyfOlfUedFHTCjIpy2KZhn8')
 //See that you configed this Script to the Bot
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
+//Episode2
+const express = require('express') //express database
+const app = express() //define app
+const port = 3000 //define port
+app.get('/', (req, res) => res.send('Hello World!')); //in app should be this Text 
+  app.listen(port, () =>
+        console.log(`Example app listening at http://localhost:${port}`)) //Checking wheter the website is online
+        //Your Bot should be online for 45 minutes
+        //But how is my Bot 24/7 alive:
+        //1. Go to uptimerobot.com
+        //2. Log in/Sign in 
+        //3. Add Monitor
+        //4. Select https
+        //5. Paste website Url
+        //6. Create Monitor
+
+
+
+		
+	
+	
+	
 });
 
 
@@ -115,37 +137,6 @@ const prefix = '!' //For next Tutorial
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Now go to the Developer Portal, then to your Bot and now jump to OAuth
 //Go to the Scopes category and click on Bot. Now copy the link that appears
 //Put the link in "Search" and invite the bot to a server
@@ -185,8 +176,8 @@ const prefix = '!' //For next Tutorial
 //YOU DID IT!
 
 
-//Your Bot should be online
+//Your Bot should be  24/7 online
 
 
 
-//Next Video: How to keep your Bot alive and your first cmd
+//Next Video: your first cmd

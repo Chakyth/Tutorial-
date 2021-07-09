@@ -53,7 +53,7 @@ const Discord = require('discord.js')  //or npm install discord.js
 const client = new Discord.Client();
 
 //Login the Bot
-client.login('ODYyNzM5MDM0OTUwNDY3NjU0.YOcuVg.-yKarzPo55w3tRx3GRAiiIPmXsE')
+client.login('TOKEN-HERE')
 
 
 //How do I get the Token:

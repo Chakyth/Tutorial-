@@ -1,7 +1,6 @@
 
 
-//Hey guys today we learn, how to keep a Bot alive
-//(with Uptimerobot)
+//Hey guys today you see my (stupid) way to make Cmd Handler and making the Ping Cmd better
 
 
 
@@ -53,7 +52,7 @@ const Discord = require('discord.js')  //or npm install discord.js
 const client = new Discord.Client();
 
 //Login the Bot
-client.login('TOKEN-HERE')
+client.login()
 
 
 //How do I get the Token:
@@ -64,14 +63,6 @@ client.login('TOKEN-HERE')
 //5. Jump to Bot
 //6. Copy the TOKEN
 //Put the Link in "TOKEN-HERE"
-
-
-
-
-
-
-
-
 
 
 
@@ -126,17 +117,23 @@ app.get('/', (req, res) => res.send('Hello World!')); //in app should be this Te
 
 
 
-client.on('message', msg => {
+client.on('message', async message  => {
 
 //Define your Prefix 
 //Put the Prefix in "YOUR PREFIX"
-const prefix = '!' //For next Tutorial
+const prefix = '++' //For next Tutorial
 //What is a prefix:
 //Thats what is listed before your cmd like ping or help
 //Example= <!> !help
+const args = message.content
+			.slice(prefix.length)
+			.trim()
+			.split(/ +/); //define args for cmd (Command)
+const command = args.shift().toLowerCase();  //define command
 
 
-})
+
+
 //Now go to the Developer Portal, then to your Bot and now jump to OAuth
 //Go to the Scopes category and click on Bot. Now copy the link that appears
 //Put the link in "Search" and invite the bot to a server
@@ -161,6 +158,22 @@ const prefix = '!' //For next Tutorial
 
 
 
+client.commands = new Discord.Collection();
+const fs = require('fs'); //define fs (reading files)
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); 
+
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	// set a new item in the Collection
+	// with the key as the command name and the value as the exported module
+	client.commands.set(command.name, command);
+
+}
+if(command === 'ping'){
+	
+	await client.commands.get('ping').execute(message, args, Discord, client)
+	 
+}
 
 
 
@@ -168,8 +181,7 @@ const prefix = '!' //For next Tutorial
 
 
 
-
-
+})
 
 
 

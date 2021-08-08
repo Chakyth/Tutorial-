@@ -1,6 +1,6 @@
 1. Creating Bot
 2. 24/7
-
+3. Command Handler Template + first Cmd
 
 
 
